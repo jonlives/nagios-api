@@ -824,5 +824,6 @@ if __name__ == '__main__':
         file(PIDFILE, 'w').write(pid)
 
     atexit.register(_exitfunc)
+    signal(SIGTERM, lambda signum, stack_frame: sys.exit(1))
 
     sys.exit(main(sys.argv))
